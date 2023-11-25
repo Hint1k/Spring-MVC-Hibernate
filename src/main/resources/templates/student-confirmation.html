@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Confirmation form</title>
+</head>
+<body>
+The student is confirmed:
+<p> Your first name is: <span th:text="${student.firstName}"></span> </p>
+<p> Your last name is: <span th:text="${student.lastName}"></span> </p>
+<p> Your country is: <span th:text="${student.country}"></span> </p>
+<p> Your programming language is: <span th:text="${student.language}"></span> </p>
+Your operating systems are: <br>
+<ul>
+<li th:each="operatingSystem : ${student.operatingSystems}">
+  <p><span th:text="${operatingSystem}"></span></p>
+</li>
+</ul>
+</body>
+</html>

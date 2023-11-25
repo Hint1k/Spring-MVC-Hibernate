@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Customer registration form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .error{color:red}
+    </style>
+</head>
+<body>
+<form method="post" th:object="${customer}" th:action="@{processForm}">
+Please enter your first name and your last name:
+    <br><br>
+    <label>First name:
+    <input type="text" name="firstName" th:field="*{firstName}" />
+    </label>
+    <br><br>
+    <label>Last name:
+    <input type="text" name="lastName" th:field="*{lastName}" class="form-control" />
+    </label>
+    <br>
+    <p th:if="${#fields.hasErrors('lastName')}" class="error" th:errors="*{lastName}">Last name is invalid</p>
+    <br>
+    <label>Free passes:
+        <input type="text" name="freePasses" th:field="*{freePasses}" class="form-control" />
+    </label>
+    <br>
+    <p th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" class="error">Number of free passes is invalid</p>
+    <br>
+    <label>Postal code:
+        <input type="text" name="postalCode" th:field="*{postalCode}" class="form-control"/>
+    </label>
+    <br>
+    <p th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="error">Postal code is invalid</p>
+    <br>
+    <label>Course code:
+        <input type="text" name="courseCode" th:field="*{courseCode}" class="form-control"/>
+    </label>
+    <br>
+    <p th:if="${#fields.hasErrors('courseCode')}" th:errors="*{courseCode}" class="error">Course code is invalid</p>
+    <br><br>
+    <button type="submit"> Submit </button>
+</form>
+</body>
+</html>
