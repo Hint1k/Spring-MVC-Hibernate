@@ -23,7 +23,7 @@ public class DeleteDemo {
 
             try (Session session = factory.getCurrentSession()) {
                 session.beginTransaction();
-                int id = 4;
+                int id = 7;
                 System.out.println("Deleting instructor with id = " + id);
                 Instructor instructor = session.get(Instructor.class, id);
                 session.remove(instructor);
